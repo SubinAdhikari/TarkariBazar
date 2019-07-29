@@ -76,5 +76,32 @@ function deleteAdmin($conn, $name){
 	return false;
 }
 
+function selectUserDataFromDatabase($conn,$email,$name){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_adduser WHERE email=:email && fname=:name");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->bindParam(':name',$name);
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetch();
+}
+
+function editUserInformation($conn,$data,$id){
+	$data['password']=md5($data['password']);
+
+	$stmtUpdate=$conn->prepare("UPDATE tb_adduser  SET fname=:fname,lname=:lname,email=:email,password=:password,phoneno=:phoneno WHERE id=:id");
+	$stmtUpdate->bindParam(':id',$id);
+	$stmtUpdate->bindParam(':fname',$data['fname']);
+	$stmtUpdate->bindParam(':lname',$data['lname']);
+	$stmtUpdate->bindParam(':email',$data['email']);
+	$stmtUpdate->bindParam(':password',$data['password']);
+	$stmtUpdate->bindParam(':phoneno',$data['phoneno']);
+	if($stmtUpdate->execute()){
+		return true;
+	}
+	else{
+	return false;
+	}
+
+}
 
 ?> 

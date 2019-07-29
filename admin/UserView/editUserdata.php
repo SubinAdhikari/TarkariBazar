@@ -2,9 +2,7 @@
  include '../../app/call.php';
  session_start();
 	
-if(isset($_POST['editbtn'])){
-	redirect('editUserdata.php');
-}
+ 
 
 ?>	
 
@@ -295,7 +293,21 @@ if(isset($_POST['editbtn'])){
    
 
 
+<?php
 
+
+$result=selectUserDataFromDatabase($conn,$_SESSION['user']['email'],$_SESSION['user']['fname']);
+// echo $result['id'];
+
+if(isset($_POST['updatebtn'])){
+    if(editUserInformation($conn,$_POST,$result['id'])){
+        echo "Updated data please logout for the update";
+        
+    }else{
+        redirect('myprofile.php');
+    }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -303,105 +315,71 @@ if(isset($_POST['editbtn'])){
 </head>
 <body>
 
-<!-- <table border="1" cellspacing="0px" cellpadding="0px">
-    <tr>
-        <td>Email</td>
-        <td><?php echo  $_SESSION['user']['email'] ?></td>
-    </tr>
-    <tr>
-        <td>UserName</td>
-        <td><?php echo  $_SESSION['user']['fname'] ?></td>
-    </tr>
-</table> -->
+<form  method="POST">
+								<div class="panel panel-flat">
+									<div class="panel-heading">
+										<h5 class="panel-title">Fill out the information</h5>
+										<div class="heading-elements">
+											<ul class="icons-list">
+						                		<li><a data-action="collapse"></a></li>
+						                		<li><a data-action="reload"></a></li>
+						                		<li><a data-action="close"></a></li>
+						                	</ul>
+					                	</div>
+									</div>
 
-
-
-<!-- Cover area -->
-<div class="profile-cover">
-					<div class="profile-cover-img" style="background-image: url(assets/images/cover.jpg)"></div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#" class="profile-thumb">
-								<img src="assets/images/placeholder.jpg" class="img-circle" alt="">
-							</a>
-						</div>
-
-						<div class="media-body">
-				    		<h1><?php echo $_SESSION['user']['fname']; ?><small class="display-block"><?php echo $_SESSION['user']['email']; ?></small></h1>
-						</div>
-
-						<div class="media-right media-middle">
-							<ul class="list-inline list-inline-condensed no-margin-bottom text-nowrap">
-								<li><a href="#" class="btn btn-default"><i class="icon-file-picture position-left"></i> Cover image</a></li>
-								<li><a href="#" class="btn btn-default"><i class="icon-file-stats position-left"></i> Statistics</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /cover area -->
-
-				<!-- Profile info -->
-				<div class="panel panel-flat">
-											<div class="panel-heading">
-												<h6 class="panel-title">Profile information</h6>
-												<div class="heading-elements">
-													<ul class="icons-list">
-								                		<li><a data-action="collapse"></a></li>
-								                		<li><a data-action="reload"></a></li>
-								                		<li><a data-action="close"></a></li>
-								                	</ul>
-							                	</div>
-											</div>
-
-											<div class="panel-body">
-												<form method="POST">
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-6">
-																<label>Username</label>
-																<input type="text" value="<?php echo $_SESSION['user']['fname']; ?>" class="form-control" readonly/>
-															</div>
-															<div class="col-md-6">
-																<label>Email</label>
-																<input type="text" value="<?php echo $_SESSION['user']['email']; ?>" class="form-control" readonly/>
-															</div>
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-12">
-																<label>Edit</label>
-																<button type="submit" name="editbtn">Edit</button>
-																<!-- <input type="text" value="<?php echo $_SESSION['user']['fname']; ?>" class="form-control" readonly/> -->
-															</div>
-															
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-4">
-																<!-- <label>City</label>
-																<input type="text" value="Munich" class="form-control"> -->
-															</div>
-															<div class="col-md-4">
-																<!-- <label>State/Province</label>
-																<input type="text" value="Bayern" class="form-control"> -->
-															</div>
-															
-														</div>
-													</div>
-
-													
-
-							                        
-
-							                        
-												</form>
-											</div>
+									<div class="panel-body">
+									
+										<div class="form-group">
+											<label>First Name</label>
+											<input type="text" name="fname" class="form-control" value=<?php echo $result['fname'];?> placeholder="Enter first name">
 										</div>
-										<!-- /profile info -->
+										<div class="form-group">
+											<label>Last Name</label>
+											<input type="text" name="lname" class="form-control" value=<?php echo $result['lname'];?> placeholder="Enter last name">
+										</div>
+										<div class="form-group">
+											<label>Email</label>
+											<input type="email" name="email" class="form-control" value=<?php echo $result['email'];?> placeholder="Enter email address">
+										</div>
+										<div class="form-group">
+											<label>Password</label>
+											<input type="password" name="password" class="form-control" value=<?php echo $result['password'];?> placeholder="Enter password">
+										</div>
+										
+										<div class="form-group">
+											<label>Phone Number</label>
+											<input type="text" name="phoneno" class="form-control" value=<?php echo $result['phoneno'];?> placeholder="Enter phone number">
+										</div>
+
+									  
+					
+										<div class="text-right">
+											<button type="submit" name ="updatebtn" class="btn btn-primary">Update <i class="icon-arrow-right14 position-right"></i></button>
+										</div>
+
+
+										
+									</div>
+								</div>
+							</form>
+							<!-- /basic layout -->
+						</div>
+						<div class="col-md-3"></div>
+
+						
+					<!-- /vertical form options -->
+
+
+					<!-- Centered forms -->
+					
+
+						
+
+										
+									</div>
+								</div>
+							</form>
 
 </body>
 </html>

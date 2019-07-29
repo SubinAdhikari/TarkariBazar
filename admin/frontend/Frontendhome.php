@@ -182,7 +182,7 @@ $result=mysqli_query($conn,$query);
     <ul class="nav navbar-nav">
       <li class="active"><a href="Frontendhome.php">Home</a></li>
       
-      <li><a href="http://kalimatimarket.gov.np/daily-price-information">Today's Vegetable Price</a></li>
+      <li><a href="http://kalimatimarket.gov.np/daily-price-information/en">Today's Vegetable Price</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
