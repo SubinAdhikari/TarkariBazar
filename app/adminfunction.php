@@ -34,6 +34,17 @@ function insertUser($conn,$data){
 	return false;
 }
 
+function checkReaminingEmail($conn,$data){
+
+	$stmtSelect = $conn->prepare("SELECT email,fname FROM tb_adduser where email=:email || fname=:fname");
+	$stmtSelect->bindParam(':email',$data['email']);
+	$stmtSelect->bindParam(':fname',$data['fname']); 
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetch();
+
+}
+
 function AuthenticateCrediential($conn,$data){
 	$data['password']=md5($data['password']);
 	$stmtSelect = $conn->prepare("SELECT * FROM tb_addadmin where email=:email && password=:password1");

@@ -40,10 +40,14 @@ if(isset($_POST['Usersubmitbtn'])){
 
 
   if(isset($_POST['registerBtn'])){
+     if(!checkReaminingEmail($conn,$_POST)){
 	if(insertUser($conn,$_POST)){
       redirect('login.php');
 		}else{
          redirect('signup.html');
       }
+   }else{
+      echo "Email Already exist";
+   }
 }
 ?>
