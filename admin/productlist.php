@@ -72,8 +72,9 @@
 
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li class="active">Dashboard</li>
+							<li><a href="index.php"><i class="icon-home2 position-left"></i> Home</a></li>
+							<li class="active">List</li>
+							<li class="active">Product List</li>
 						</ul>
 
 						<ul class="breadcrumb-elements">
@@ -102,7 +103,7 @@
 				<!-- Content area -->
 
 
-                <legend><center><span style="color:red"><h4>PRODUCTS</h4></span></center></legend>
+                <center><h2><b>PRODUCTS</center></h2></b>
 				<table border="1" height="100px" width="1100px">
 				<thead>
 				<tr>

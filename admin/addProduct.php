@@ -130,8 +130,9 @@ if (file_put_contents($newFileName, $newFileContent) !== false) {
 
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li class="active">Dashboard</li>
+							<li><a href="index.php"><i class="icon-home2 position-left"></i> Home</a></li>
+							<li class="active">Products</li>
+							<li class="active">Add Product</li>
 						</ul>
 
 						<ul class="breadcrumb-elements">

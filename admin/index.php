@@ -141,7 +141,7 @@ echo "hello it's place for quantity warning";
 
 
 
-				<legend><center><span style="color:red"><h4>ORDERS</h4></span></center></legend>
+<center><h2><b>ORDERS</center></h2></b>
 				<table border="1" height="100px"  width="1100px"  >
 				<thead>
 				<tr>
@@ -218,7 +218,7 @@ echo "hello it's place for quantity warning";
 
 
 
-			<legend><center><span style="color:red"><h4>CONFIRMED ORDERS</h4></span></center></legend>
+			<center><h2><b>CONFIRMED ORDERS</center></h2></b>
 				<table border="1" height="100px" width="1100px">
 				<thead>
 				<tr>

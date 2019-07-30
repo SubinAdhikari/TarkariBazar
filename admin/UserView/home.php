@@ -323,7 +323,7 @@ $result=mysqli_query($conn,$query);
 <div>
 <!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
-         <img   src="ProductSaleimages/baner.png" width=100% height="300px" border="0"/>       
+         <img   src="ProductSaleimages/banner.png" width=100% height="300px" border="0"/>       
 	  </div>
 	  <hr size="30" >
 
