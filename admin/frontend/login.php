@@ -7,7 +7,10 @@ if(checkUserLogin()){
 if(checkAdminLogin()){
    redirect('../index.php');
 }
+
 $msg=$_GET['ref'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +64,7 @@ $msg=$_GET['ref'];
             <ul>
                     
                     <li class="selected"><a href="login.php">LOGIN</a></li>
+                    <li ><a href="signup.php">Register</a></li>
                     
               </ul>
       </div>

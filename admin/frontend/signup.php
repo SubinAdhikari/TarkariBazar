@@ -38,7 +38,7 @@ $msg=$_GET['ref'];
                <ul>
                      
                      <li><a href="login.php">LOGIN</a></li>
-                     <li class="selected"><a href="signup.html">Register</a></li>
+                     <li class="selected"><a href="signup.php">Register</a></li>
                </ul>
          </div>
          <!--end of menu-->
@@ -49,7 +49,7 @@ $msg=$_GET['ref'];
             <ul>
                   
                   <li><a href="login.php">LOGIN</a></li>
-                  <li class="selected"><a href="signup.html">Register</a></li>
+                  <li class="selected"><a href="signup.php">Register</a></li>
             </ul>
       </div>
       <div class="banner">
