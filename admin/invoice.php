@@ -152,7 +152,20 @@
 		<td><b>Total Price</b></td>
 		<td></td>
 		<td></td>
-		<td></td>
+		<td>
+<?php
+$result=selectOrderDeliveredDatabase($conn);
+$value=0;
+
+foreach ($result as $key => $results):
+
+	$value=$value+$results['price']*$results['productquantity'];
+	
+
+endforeach;
+?>
+
+<center><b><u><?php echo $value; ?></u></b></center>	</td>
 		
 </tr>
 </tfoot>
