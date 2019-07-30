@@ -300,11 +300,11 @@
 <head> 
 	<title>Display</title>
 </head>
-<body>
+<body> 
 
 
 
-<legend><center><span style="color:red"><h4>MY ORDERS</h4></span></center></legend>
+<center><h2><b>MY ORDERS</center></h2></b>
 				<table border="1" height="100px"  width="1100px"  >
 				<thead>
 				<tr>

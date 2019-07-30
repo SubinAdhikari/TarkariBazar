@@ -137,7 +137,7 @@ $msg=$_GET['ref'];
                      <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                             <span style="font-size: 25px"><span style="color: #16a085"> Didn't have a account:-</span></span><a href="signup.html"><button type="submit">Register </button></a>
+                             <span style="font-size: 25px"><span style="color: #16a085"> Didn't have a account:-</span></span><a href="signup.php"><button type="submit">Register </button></a>
 
                            </div>
                         <div class="col-md-4">

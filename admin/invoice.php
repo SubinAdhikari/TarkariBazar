@@ -124,10 +124,10 @@
 <table border=1 cellspacing="0" cellpadding="0" width=100% >
 	<thead>
 	<tr>
-		<th>SN</th>
-		<th>Product Name</th>
-		<th>Product Quantity</th>
-		<th>Price</th>
+		<th><center>SN</center></th>
+		<th><center>Product Name</center></th>
+		<th><center>Product Quantity</center></th>
+		<th><center>Price</center></th>
 	</tr>
 </thead>
 <tbody>
@@ -149,7 +149,7 @@
 							</tbody>
 <tfoot>
 	<tr>
-		<td><b>Total Price</b></td>
+	<td><b><center>Total Price</center></b></td>
 		<td></td>
 		<td></td>
 		<td>
