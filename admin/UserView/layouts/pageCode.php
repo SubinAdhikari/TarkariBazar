@@ -105,7 +105,7 @@ if(isset($_POST['orderSubmit'])){
 			<div class="content-wrapper">
 
 				<!-- Page header -->
-				<img   src="../ProductSaleimages/baner.png" width=100% height="300px" border="0"/>
+				<img   src="../ProductSaleimages/banner.png" width=100% height="300px" border="0"/>
 
 				
 				<!-- /page header -->
