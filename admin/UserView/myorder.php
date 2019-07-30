@@ -1,9 +1,7 @@
 <?php
  include '../../app/call.php';
  session_start();
-	if(!checkUserLogin()){
-	redirect('../frontend/frontendhome.php');
-} 
+
 
 
 
@@ -139,30 +137,13 @@
 
 
 
+ 
 
 
 
 
 
 
-<?php 
-// include 'layouts/header.php';
-$serverName="localhost";
-$userName="root";
-$password="";
-$dbName="userloginfortb";
-
-$conn=mysqli_connect($serverName,$userName,$password,$dbName);
-
-if(!$conn)
-  die("connection Failed".mysqli_connect_error());
-
-
-$query="SELECT image,link,quantity,title,description,update_date from tb_addproduct";
-
-$result=mysqli_query($conn,$query);
-
-?>
 
 	<!-- Page container -->
 	<div class="page-container">
@@ -320,54 +301,46 @@ $result=mysqli_query($conn,$query);
 	<title>Display</title>
 </head>
 <body>
-<div>
-<!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
-         <img   src="ProductSaleimages/baner.png" width=100% height="300px" border="0"/>       
-	  </div>
-	  <hr size="30" >
 
+
+<legend><center><span style="color:red"><h4>MY ORDERS</h4></span></center></legend>
+				<table border="1" height="100px"  width="1100px"  >
+				<thead>
+				<tr>
+					<th><center>Order Number</center></th>
+					<th><center>Product Name</center></th>
+					<th><center>Product Quantity</center></th>
+					<th><center>Price</center></th>
+					<th><center>Order By</center></th>
+				</tr>
+				</thead>
+				<tbody> 
+				<?php $orderDatas=selectMyOrderForUser($conn,$_SESSION['user']['email']);
+				
+								// dump($adminUsers);
+								foreach ($orderDatas as $key => $orderData):
+									# code...
+																?>
+								<tr>
+									<td><center><?php echo $orderData['id']; ?></td>
+									<td><center><?php echo $orderData['productname']; ?></center></td>
+									<td><center><?php echo $orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['price']*$orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['order_by']; ?></center></td>
+									
+																
+																
+				
+								</tr>
+						<?php endforeach; ?>
+							</tbody>
+
+				
+			
+			</table>
 	  
-<!-- <h3>Please Use CTRL + F for filter sorry for the inconvenience caused</h3> -->
-<?php
-while($row=mysqli_fetch_assoc($result)){
-	if($row['quantity']>=1){
 
-	// echo $row['image']; 
-	// $link=$row['link'];
-	?>
-	<div>
-	
-
-	<div class="card-deck">
-<div class="col-sm-3">
-  <div class="card">
-  <a  href= "Pages/<?php  echo $row['link'] ?> "> <img class="card-img-top" src="../ProductImages/<?php echo $row['image']  ?>" alt="ProductName" height="200" width="100%" > 
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $row['title'] ?></h5>
-      <p class="card-text"><?php echo $row['description'] ?></p>
-	  <p class="card-text"><small class="text-muted"><?php echo $row['update_date'] ?></small></p>
-	  
-    </div>
-  </div>
-  </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-		<!-- <a  href= "Pages/<?php  echo $row['link'] ?> "> <img src="../ProductImages/<?php echo $row['image']  ?>" alt="#" height="200" width="100%"></a> -->
-	</div>
-<?php 
-}
-}
-?>
 	
 
 </body>

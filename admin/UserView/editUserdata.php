@@ -340,7 +340,7 @@ if(isset($_POST['updatebtn'])){
 										</div>
 										<div class="form-group">
 											<label>Email</label>
-											<input type="email" name="email" class="form-control" value=<?php echo $result['email'];?> placeholder="Enter email address">
+											<input type="email" name="email" class="form-control" value=<?php echo $result['email'];?> placeholder="Enter email address" readonly>
 										</div>
 										<div class="form-group">
 											<label>Password</label>

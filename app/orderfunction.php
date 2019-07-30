@@ -73,7 +73,13 @@ function selectOrderDeliveredDatabase($conn){
 }
  
 
-
+function selectMyOrderForUser($conn,$email){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_deliveredorder WHERE order_by=:email");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
 
 
 function SelectIDForOrderConfirmation($conn,$data){
