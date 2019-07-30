@@ -42,7 +42,10 @@ if(isset($_POST['Usersubmitbtn'])){
   if(isset($_POST['registerBtn'])){
      if(!checkReaminingEmail($conn,$_POST)){
 	if(insertUser($conn,$_POST)){
-      redirect('login.php');
+      // redirect('login.php');
+      $_SESSION['user'] ['email']=$_POST['email'];
+      $_SESSION['user'] ['fname']=$_POST['fname'];
+      redirect('../UserView/home.php');
 		}else{
          redirect('signup.html');
       }
