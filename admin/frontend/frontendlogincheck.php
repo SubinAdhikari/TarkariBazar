@@ -33,9 +33,9 @@ if(isset($_POST['Usersubmitbtn'])){
     }
    }
    else{ 
-      redirect('login.php');
+      redirect('login.php?ref=Invalid Crediential');
    }
-   
+    
   } 
 
 
@@ -50,7 +50,7 @@ if(isset($_POST['Usersubmitbtn'])){
          redirect('signup.html');
       }
    }else{
-      echo "Email/userName Already exist";
+      redirect('signup.php?ref=Email/userName Already exist');
    }
 }
 ?>

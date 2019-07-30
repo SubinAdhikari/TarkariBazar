@@ -7,6 +7,7 @@ if(checkUserLogin()){
 if(checkAdminLogin()){
    redirect('../index.php');
 }
+$msg=$_GET['ref'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +49,7 @@ if(checkAdminLogin()){
                <ul>
                     
                      <li class="selected"><a href="login.php">LOGIN</a></li>
-                     <li ><a href="signup.html">Register</a></li>
+                     <li ><a href="signup.php">Register</a></li>
                      
                </ul>
          </div>
@@ -69,7 +70,7 @@ if(checkAdminLogin()){
       </div>
       <!--end of banner-->  
       <div class="contact">
-         <div class="row">
+         <div class="row"> 
             <div class="col-md-12">
                <div class="contact-section">
                   <div class="col-md-12">
@@ -82,6 +83,7 @@ if(checkAdminLogin()){
                               <div class="address">
                                  
                               </div>
+                              <span style="color:Red"> <?php  echo $msg;  ?></span>
                               <form method="POST" action="frontendlogincheck.php">
                                   <legend>User Login Form</legend>  
                                  <input type="email" name="email" placeholder="Email ">

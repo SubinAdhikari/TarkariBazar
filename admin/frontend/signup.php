@@ -1,3 +1,6 @@
+<?php
+$msg=$_GET['ref'];
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -65,6 +68,7 @@
                         <div class="address">
                            <h2>Register Here</h2>
                         </div>
+                        <span style="color:Red"> <?php echo $msg; ?></span>
                         <form method="POST"  action="frontendlogincheck.php">
                            <legend>Register Form</legend>
                            <input type="text" name="fname" placeholder="First Name" required/>

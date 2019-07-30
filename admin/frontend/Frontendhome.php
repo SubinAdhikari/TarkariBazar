@@ -185,7 +185,7 @@ $result=mysqli_query($conn,$query);
       <li><a href="http://kalimatimarket.gov.np/daily-price-information/en">Today's Vegetable Price</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
