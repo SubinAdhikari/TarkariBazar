@@ -177,7 +177,7 @@ $result=mysqli_query($conn,$query);
 				<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">HamroTarkariBazar</a>
+      <a class="navbar-brand" href="Frontendhome.php">HamroTarkariBazar</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="Frontendhome.php">Home</a></li>
@@ -207,7 +207,7 @@ $result=mysqli_query($conn,$query);
 <div>
 <!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
-         <img   src="../UserView/ProductSaleimages/baner.png" width=100% height="300px" border="0"/>       
+         <img   src="../UserView/ProductSaleimages/banner.png" width=100% height="300px" border="0"/>       
 	  </div>
 	  <hr size="30" >
 
