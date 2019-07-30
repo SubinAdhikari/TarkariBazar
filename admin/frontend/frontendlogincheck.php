@@ -47,7 +47,7 @@ if(isset($_POST['Usersubmitbtn'])){
          redirect('signup.html');
       }
    }else{
-      echo "Email Already exist";
+      echo "Email/userName Already exist";
    }
 }
 ?>
