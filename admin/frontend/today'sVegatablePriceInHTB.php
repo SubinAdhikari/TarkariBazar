@@ -50,102 +50,11 @@
 
 <body>
  
-<!-- NAVEBAR HERE -->
 
 
 
 
 
-
-
-
-
-<!-- <div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="Frontendhome.php"><img src="../UserView/layouts/logo.png" alt="HameroTarkariBazar" width="50%"></a>
-
-			<ul class="nav navbar-nav visible-xs-block">
-				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
-		</div>
-
-		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav">
-				
-			
-				
-			</ul>
-
-			
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown language-switch">
-					
-
-					
-				</li>
-
-				
-
-				<li class="dropdown dropdown-user">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="../UserView/assets/images/user.png" alt="">
-						
-						<i class="caret"></i>
-					</a>
-
-					<ul class="dropdown-menu dropdown-menu-right">
-						
-						<li><a href="login.php"><i class="icon-switch2"></i>Login</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-// include 'layouts/header.php';
-$serverName="localhost";
-$userName="root";
-$password="";
-$dbName="userloginfortb";
-
-$conn=mysqli_connect($serverName,$userName,$password,$dbName);
-
-if(!$conn)
-  die("connection Failed".mysqli_connect_error());
-
-
-$query="SELECT image,link,quantity,title,description,update_date from tb_addproduct";
-
-$result=mysqli_query($conn,$query);
-
-?>
 
 	<!-- Page container -->
 	<div class="page-container">
@@ -180,9 +89,9 @@ $result=mysqli_query($conn,$query);
       <a class="navbar-brand" href="Frontendhome.php">HamroTarkariBazar</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="Frontendhome.php">Home</a></li>
+      <li class="inactive"><a href="Frontendhome.php">Home</a></li>
       
-      <li><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price</a></li>
+      <li class="active"><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -204,54 +113,37 @@ $result=mysqli_query($conn,$query);
 	<title>Display</title>
 </head>
 <body>
-<div>
-<!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
-         <img   src="../UserView/ProductSaleimages/banner.png" width=100% height="300px" border="0"/>       
-	  </div>
-	  <hr size="30" >
+<center><h2><b>Product Price in HamroTarkariBazar</center></h2></b>
+				<table border="1" height="100px"  width="100%"  >
+				<thead>
+				<tr>
+					<th><center>SN</center></th>
+					<th><center>Product Name</center></th>
+					<th><center>Price per Quantity</center></th>
+				</tr>
+				</thead>
+				<tbody> 
 
-	  
-<!-- <h3>Please Use CTRL + F for filter sorry for the inconvenience caused</h3> -->
 <?php
-while($row=mysqli_fetch_assoc($result)){
-	if($row['quantity']>=1){
-
-	// echo $row['image'];  
-	// $link=$row['link'];
-	?>
-	<div>
-	
-
-	<div class="card-deck">
-<div class="col-sm-3">
-  <div class="card">
-  <a  href= "login.php"> <img class="card-img-top" src="../ProductImages/<?php echo $row['image']  ?>" alt="ProductName" height="200" width="100%" > 
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $row['title'] ?></h5>
-      <p class="card-text"><?php echo $row['description'] ?></p>
-	  <p class="card-text"><small class="text-muted"><?php echo $row['update_date'] ?></small></p>
-	  
-    </div>
-  </div>
-  </div>
-  </div>
+include '../../app/call.php';
+$Price=selectTheProductPrice($conn);
+$sn=1;
+foreach($Price as $key =>$prices):
 
 
-
-
-
-
-
-
-
-
-		<!-- <a  href= "Pages/<?php  echo $row['link'] ?> "> <img src="../ProductImages/<?php echo $row['image']  ?>" alt="#" height="200" width="100%"></a> -->
-	</div>
-<?php 
-}
-}
 ?>
+<tr>
+                                    <td><center><?php echo $sn;$sn++ ; ?></td>
+									<td><center><?php echo $prices['title']; ?></center></td>
+									<td><center><?php echo $prices['price']; ?></center></td>
+</tr>
+<?php endforeach; ?>
+							</tbody>
+
+				
+			
+			</table>
 	
 
 </body>

@@ -6,6 +6,13 @@ function selectProductDatabase($conn){
  	return $stmtSelect->fetchAll();
 }
 
+function selectTheProductPrice($conn){
+	$stmtSelect = $conn->prepare("SELECT title,price FROM tb_addproduct");
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+
 function deleteProduct($conn, $name){
 	$stmtdelete=$conn->prepare("DELETE FROM tb_addproduct WHERE image=:name");
 	$stmtdelete->bindParam(':name', $name);

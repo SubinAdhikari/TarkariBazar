@@ -371,7 +371,7 @@ if(isset($_POST['editbtn'])){
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-12">
-																<label>Edit</label>
+																<label>Edit Credientials:</label>
 																<button type="submit" name="editbtn">Edit</button>
 																<!-- <input type="text" value="<?php echo $_SESSION['user']['fname']; ?>" class="form-control" readonly/> -->
 															</div>
