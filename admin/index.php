@@ -160,7 +160,7 @@ echo "hello it's place for quantity warning";
 					<th><center>Area</center></th>
 					<th><center>Confirmation</center></th>
 				</tr>
-				</thead>
+				</thead> 
 				<tbody> 
 				<?php $orderDatas=selectOrderDatabase($conn);
 				$sn=0;
@@ -191,9 +191,9 @@ echo "hello it's place for quantity warning";
 																	Delete
 																</a></center>
 
-																<center><a href="userOrderDecline.php?ref=<?php echo $orderData['order_by'];?>" onclick="return confirm('Order Decline??');" class="btn btn-xs btn-warning">
+																<!-- <center><a href="userOrderDecline.php?ref=<?php echo $orderData['order_by'];?>" onclick="return confirm('Order Decline??');" class="btn btn-xs btn-warning">
 																	Decline
-																</a></center>
+																</a></center> -->
 																</td>
 				
 								</tr>

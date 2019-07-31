@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,18 @@
 
 <!-- NAVEBAR HERE -->
 <?php include 'layouts/header.php';
+$id=$_GET['ref'];
+if(isset($_POST['updatebtn'])){
 
+if(editProductInfo($conn,$id,$_POST)){
+    echo "Update Sucessfully";
+}else{
+    echo "Problem Edit Product data";
+}
+
+		
+		
+	}
 ?>
 
 	<!-- Page container -->
@@ -76,7 +89,7 @@
 						<ul class="breadcrumb">
 							<li><a href="index.php"><i class="icon-home2 position-left"></i> Home</a></li>
 							<li class="active">Products</li>
-                            <li class="active">Manage Product</li>
+							<li class="active">Add Product</li>
 						</ul>
 
 						<ul class="breadcrumb-elements">
@@ -103,62 +116,47 @@
 
 
 				<!-- Content area -->
-				
-			<table border="1" height="100px" width="1100px">
-				<thead>
-				<tr>
-					<th><center>SN</center></th>
-					<th><center>Image Name</center></th>
-					<th><center>Link</center></th>
-					<th><center>Quantity</center></th>
-					<th><center>Price per quantity</center></th>
-					<th><center>Manage</center></th>
-					
-				</tr>
-				</thead>
-				<tbody>
-				<?php $adminUsers=selectProductDatabase($conn);
-				$sn=0;
-				
-				$name="";
-				if(isset($_POST['deletebtn'])){
-				echo "Hello";
-				}
-								// dump($adminUsers);
-								foreach ($adminUsers as $key => $adminUser):
-									# code...
-									
-																?>
-								<tr>
-								
-									<td><center><?php echo ++$sn; ?></center></td>
-									<td><center><?php echo $adminUser['image']; ?></center></td>
-									<td><center><?php echo $adminUser['link']; ?></center></td>
-									<td><center><?php echo $adminUser['quantity']; ?></center></td>
-									<td><center><?php echo $adminUser['price']; ?></center></td>
-									<td>
-									<center><a href="deleteProduct.php?ref=<?php echo $adminUser['image'];?>" onclick="return confirm('Really Deleting the Product??');" class="btn btn-xs btn-danger">
-																	Delete
-																</a></center>
+                <?php
+                $result=selectProductById($conn,$id);
+                ?>
+                
+                <!DOCTYPE html>
+<html>
+<head> 
+	<title>File Update</title>
+</head>
+<body>
+<table border='0' cellspacing="0px" cellpadding="0px">
+	<form method="POST" >
+	
+		<tr>
+			<td>Quantity:</td><td><input type="text" value="<?php echo $result['quantity']?>" name="quantity" required/></td></tr>
+		<tr>
+			<td>Title:</td><td><input type="text" name="title" value="<?php echo $result['title']?>" required/></td></tr>
+		
+		<tr>
+			<td>Update Date:</td><td><input type="date" name="update_date" value="<?php echo $result['update_date']?>" required/></td></tr>
+		<tr>
+			<td>Price Per Kg:</td><td><input type="text" name="price" value="<?php echo $result['price']?>" required/></td></tr>
 
-																<center><a href="editProductInfo.php?ref=<?php echo $adminUser['id'];?>" onclick="return confirm('Really editing the product??');" class="btn btn-xs btn-primary">
-																	Edit
-																</a></center>
-									</td>
-									
-				
-								</tr>
-						<?php endforeach; ?>
-							</tbody>
 
-				
-			   
-			</table>
+     
 
-				<!-- /content area
+
+
+		<td><button type="submit" name="updatebtn">Update</button></td></tr>
+	</form>
+	</table>
+
+</body>
+</html>
+
+
+
+				<!-- /content area -->
 
 			</div>
-			 /main content -->
+			<!-- /main content -->
 
 		</div>
 		<!-- /page content -->
