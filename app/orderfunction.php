@@ -26,8 +26,8 @@ function insertOrder($conn,$data){
 	return false;
 }
 
-function selectOrderDatabase($conn){
-	$stmtSelect = $conn->prepare("SELECT * FROM tb_addorder");
+function selectOrderDatabase($conn){ 
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_addorder ORDER BY order_by ASC");
 	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();

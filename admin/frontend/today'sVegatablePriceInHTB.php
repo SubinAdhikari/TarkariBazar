@@ -118,9 +118,9 @@
 				<table border="1" height="100px"  width="100%"  >
 				<thead>
 				<tr>
-					<th><center>SN</center></th>
-					<th><center>Product Name</center></th>
-					<th><center>Price per Quantity</center></th>
+					<th><center><b>SN</b></center></th>
+					<th><center><b>Product Name</b></center></th>
+					<th><center><b>Price per Quantity</b></center></th>
 				</tr>
 				</thead>
 				<tbody> 
