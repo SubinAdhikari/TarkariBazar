@@ -34,6 +34,25 @@ function selectOrderDatabase($conn){
 }
 
 
+function selectMyPendingOrderForUser($conn,$email){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_addorder WHERE order_by=:email");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+
+function selectMyConfirmedOrderForUser($conn,$email){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_confirmorder WHERE order_by=:email");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->execute();
+	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+	return $stmtSelect->fetchAll();
+	
+	
+ 	
+} 
+
 
 function selectConfirmedOrderDatabase($conn,$data){
 	$stmtSelect = $conn->prepare("SELECT * FROM tb_addorder WHERE id=:id");

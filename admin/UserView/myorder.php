@@ -304,7 +304,88 @@
 
 
 
-<center><h2><b>MY ORDERS</center></h2></b>
+<center><h2><b>MY PENDING ORDERS</center></h2></b>
+				<table border="1" height="100px"  width="1100px"  >
+				<thead>
+				<tr>
+					<th><center>Order Number</center></th>
+					<th><center>Product Name</center></th>
+					<th><center>Product Quantity</center></th>
+					<th><center>Price</center></th>
+					<th><center>Order By</center></th>
+					<th><center>Status</center></th>
+				</tr>
+				</thead>
+				<tbody> 
+				<?php $orderDatas=selectMyPendingOrderForUser($conn,$_SESSION['user']['email']);
+				
+								// dump($adminUsers);
+								foreach ($orderDatas as $key => $orderData):
+									# code...
+																?>
+								<tr>
+									<td><center><?php echo $orderData['id']; ?></td>
+									<td><center><?php echo $orderData['productname']; ?></center></td>
+									<td><center><?php echo $orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['price']*$orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['order_by']; ?></center></td>
+									<td><center><a href="userOrderCancel.php?ref=<?php echo $orderData['id'];?>" onclick="return confirm('Deleting Order??');" class="btn btn-xs btn-danger">
+																	Cancel Order
+																</a></center></td>
+																
+																
+				
+								</tr>
+						<?php endforeach; ?>
+							</tbody>
+
+				
+			
+			</table>
+
+
+
+
+			<center><h2><b>MY ORDERS ON THE WAY</center></h2></b>
+				<table border="1" height="100px"  width="1100px"  >
+				<thead>
+				<tr>
+					<th><center>Order Number</center></th>
+					<th><center>Product Name</center></th>
+					<th><center>Product Quantity</center></th>
+					<th><center>Price</center></th>
+					<th><center>Order By</center></th>
+					<th><center>Status</center></th>
+				</tr>
+				</thead>
+				<tbody> 
+				<?php $orderDatas=selectMyConfirmedOrderForUser($conn,$_SESSION['user']['email']);
+				
+								// dump($adminUsers);
+								foreach ($orderDatas as $key => $orderData):
+									# code...
+																?>
+								<tr>
+									<td><center><?php echo $orderData['id']; ?></td>
+									<td><center><?php echo $orderData['productname']; ?></center></td>
+									<td><center><?php echo $orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['price']*$orderData['productquantity']; ?></center></td>
+									<td><center><?php echo $orderData['order_by']; ?></center></td>
+									<td><center><?php echo "Shipped"; ?></center></td>
+																
+																
+				
+								</tr>
+						<?php endforeach; ?>
+							</tbody>
+
+				
+			
+			</table>
+
+
+
+<center><h2><b>MY RECEIVED ORDERS</center></h2></b>
 				<table border="1" height="100px"  width="1100px"  >
 				<thead>
 				<tr>
@@ -339,6 +420,11 @@
 				
 			
 			</table>
+	  
+
+
+
+			
 	  
 
 	
