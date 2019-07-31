@@ -145,6 +145,10 @@ $query="SELECT image,link,quantity,title,description,update_date from tb_addprod
 
 $result=mysqli_query($conn,$query);
 
+$marqueeNoticeFetch="SELECT notice FROM marquee_info ORDER BY id DESC ";
+$notice=mysqli_query($conn,$marqueeNoticeFetch);
+$row=mysqli_fetch_assoc($notice);
+
 ?>
 
 	<!-- Page container -->
@@ -201,12 +205,12 @@ $result=mysqli_query($conn,$query);
 <!DOCTYPE html>
 <html>
 <head> 
-	<title>Display</title>
+	<title>Display</title> 
 </head>
 <body>
 <hr size="30" >
 <div>
-<span style="color:black;font-style:italic;background-color:white "><marquee><b>Advertisements!! Or Sale Notice</b></marquee></span>
+<span style="color:black;font-style:italic;background-color:white "><marquee><b><?php foreach($row as $key=>$rows): echo $rows; ?></b></marquee></span><?php endforeach; ?>
 </div>
 <hr size="30" >
 <div>

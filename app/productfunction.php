@@ -52,4 +52,14 @@ function editProductInfo($conn,$id,$data){
 
 
 
+function storeMarqueeNotice($conn,$data){
+	$stmtinsert=$conn->prepare("INSERT INTO marquee_info (`notice`) VALUES (:notice)");
+
+	$stmtinsert->bindParam(':notice', $data['notice']);
+	if ($stmtinsert->execute()) {
+		return true;
+	}
+	return false;
+}
+
 ?>

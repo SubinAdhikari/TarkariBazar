@@ -76,6 +76,14 @@
 									
 									</ul>
 								</li>
+								<li>
+									<a href="#"><i class="icon-bus"></i> <span>Marquee</span></a>
+									<ul>
+										
+										<li><a href="marqueeInfoEdit.php">Edit Marquee Info </a></li>
+									
+									</ul>
+								</li>
 								
 								
 								
