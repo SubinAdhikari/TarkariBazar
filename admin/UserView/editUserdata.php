@@ -344,7 +344,7 @@ if(isset($_POST['updatebtn'])){
 										</div>
 										<div class="form-group">
 											<label>Password</label>
-											<input type="password" name="password" class="form-control" value=<?php echo $result['password'];?> placeholder="Enter password">
+											<input type="password" name="password" class="form-control"  placeholder="Enter password" required>
 										</div>
 										
 										<div class="form-group">

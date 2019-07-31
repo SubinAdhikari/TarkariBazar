@@ -109,7 +109,7 @@
 
 
         <!-- Content area -->
-        
+        <center><b><h2>Displaying Calender Coming Soon</h2></b></center>
 	<!-- /content area -->
 
     </div>
