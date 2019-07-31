@@ -204,6 +204,11 @@ $result=mysqli_query($conn,$query);
 	<title>Display</title>
 </head>
 <body>
+<hr size="30" >
+<div>
+<span style="color:black;font-style:italic;background-color:white "><marquee><b>Advertisements!! Or Sale Notice</b></marquee></span>
+</div>
+<hr size="30" >
 <div>
 <!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
