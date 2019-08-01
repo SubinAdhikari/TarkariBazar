@@ -332,7 +332,7 @@ if(isset($_POST['updatebtn'])){
 									
 										<div class="form-group">
 											<label>First Name</label>
-											<input type="text" name="fname" class="form-control" value=<?php echo $result['fname'];?> placeholder="Enter first name">
+											<input type="text" name="fname" class="form-control" value=<?php echo $result['fname'];?> placeholder="Enter first name" readonly>
 										</div>
 										<div class="form-group">
 											<label>Last Name</label>

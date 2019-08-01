@@ -112,7 +112,8 @@
 					<th><center>Link</center></th>
 					<th><center>Quantity</center></th>
 					<th><center>Price per quantity</center></th>
-					<th><center>Manage</center></th>
+					<th colspan="2"><center>Manage</center></th>
+					<th><center></center></th>
 					
 				</tr>
 				</thead>
@@ -139,9 +140,9 @@
 									<td>
 									<center><a href="deleteProduct.php?ref=<?php echo $adminUser['image'];?>" onclick="return confirm('Really Deleting the Product??');" class="btn btn-xs btn-danger">
 																	Delete
-																</a></center>
+																</a></center></td>
 
-																<center><a href="editProductInfo.php?ref=<?php echo $adminUser['id'];?>" onclick="return confirm('Really editing the product??');" class="btn btn-xs btn-primary">
+															<td>	<center><a href="editProductInfo.php?ref=<?php echo $adminUser['id'];?>" onclick="return confirm('Really editing the product??');" class="btn btn-xs btn-primary">
 																	Edit
 																</a></center>
 									</td>

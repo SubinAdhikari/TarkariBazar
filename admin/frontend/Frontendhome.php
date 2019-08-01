@@ -210,7 +210,7 @@ $row=mysqli_fetch_assoc($notice);
 <body>
 <hr size="30" >
 <div>
-<span style="color:black;font-style:italic;background-color:white "><marquee><b><?php foreach($row as $key=>$rows): echo $rows; ?></b></marquee></span><?php endforeach; ?>
+<span style="color:red;font-style:italic;background-color:white "><marquee><b><?php foreach($row as $key=>$rows): echo $rows; ?></b></marquee></span><?php endforeach; ?>
 </div>
 <hr size="30" >
 <div>

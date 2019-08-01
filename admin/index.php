@@ -158,7 +158,8 @@ echo "hello it's place for quantity warning";
 					<th><center>Municipality</center></th>
 					<th><center>City</center></th>
 					<th><center>Area</center></th>
-					<th><center>Confirmation</center></th>
+					<th colspan="2"><center>Confirmation</center></th>
+					<th><center></center></th>
 				</tr>
 				</thead> 
 				<tbody> 
@@ -184,17 +185,17 @@ echo "hello it's place for quantity warning";
 									<td><center><?php echo $orderData['area']; ?></center></td>
 									<td><center><a href="orderconfirm.php?ref=<?php echo $orderData['id'];?>" onclick="return confirm('Order Confirmed??');" class="btn btn-xs btn-success">
 																	Confirm
-																</a></center>
+																</a></center></td>
 																
 																
-																<center><a href="orderdelete.php?ref=<?php echo $orderData['id'];?>" onclick="return confirm('Deleting Order??');" class="btn btn-xs btn-danger">
+															<td>	<center><a href="orderdelete.php?ref=<?php echo $orderData['id'];?>" onclick="return confirm('Deleting Order??');" class="btn btn-xs btn-danger">
 																	Delete
-																</a></center>
+																</a></center></td>
 
 																<!-- <center><a href="userOrderDecline.php?ref=<?php echo $orderData['order_by'];?>" onclick="return confirm('Order Decline??');" class="btn btn-xs btn-warning">
 																	Decline
 																</a></center> -->
-																</td>
+																
 				
 								</tr>
 						<?php endforeach; ?>

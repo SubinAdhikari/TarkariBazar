@@ -146,7 +146,7 @@
 									<td><center><?php echo $orderData['municipality']; ?></center></td>
 									<td><center><?php echo $orderData['city']; ?></center></td>
 									<td><center><?php echo $orderData['area']; ?></center></td>
-									<td><center>Delivered</a></center></td>
+									<td><center><span style="color:green"><b>Delivered</b></a></center></td>
 				
 								</tr>
 						<?php endforeach; ?>
