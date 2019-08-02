@@ -41,10 +41,28 @@ function selectMyPendingOrderForUser($conn,$email){
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();
 }
-
+function selectMyPendingOrderForTrack($conn,$email,$id){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_addorder WHERE order_by=:email && id=:id");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->bindParam(':id',$id);
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
 function selectMyConfirmedOrderForUser($conn,$email){
 	$stmtSelect = $conn->prepare("SELECT * FROM tb_confirmorder WHERE order_by=:email");
 	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->execute();
+	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+	return $stmtSelect->fetchAll();
+	
+	
+ 	
+} 
+function selectMyConfirmedOrderForTrack($conn,$email,$id){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_confirmorder WHERE order_by=:email && id=:id");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->bindParam(':id',$id);
 	$stmtSelect->execute();
 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
 	return $stmtSelect->fetchAll();
@@ -71,7 +89,7 @@ function functionforDeliveryDatabase($conn,$data){
 	$stmtSelect->execute();
 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
 	return $stmtSelect->fetch();
-	
+	 
 	
  	
 } 
@@ -95,6 +113,14 @@ function selectOrderDeliveredDatabase($conn){
 function selectMyOrderForUser($conn,$email){
 	$stmtSelect = $conn->prepare("SELECT * FROM tb_deliveredorder WHERE order_by=:email");
 	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->execute();
+ 	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
+ 	return $stmtSelect->fetchAll();
+}
+function selectMyOrderForTrack($conn,$email,$id){
+	$stmtSelect = $conn->prepare("SELECT * FROM tb_deliveredorder WHERE order_by=:email && id=:id");
+	$stmtSelect->bindParam(':email',$email);
+	$stmtSelect->bindParam(':id',$id);
 	$stmtSelect->execute();
  	$stmtSelect->setFetchMode(PDO::FETCH_ASSOC);
  	return $stmtSelect->fetchAll();

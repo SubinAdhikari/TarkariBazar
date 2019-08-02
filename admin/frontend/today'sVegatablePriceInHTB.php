@@ -91,7 +91,8 @@
     <ul class="nav navbar-nav">
       <li class="inactive"><a href="Frontendhome.php">Home</a></li>
       
-      <li class="active"><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price</a></li>
+      <li class="active"><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price in hamroTarkariBazar</a></li>
+	  <li><a href="trackMyOrder.php">Track My order</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -114,7 +115,7 @@
 </head>
 <body>
 
-<center><h2><b>Product Price in HamroTarkariBazar</center></h2></b>
+<!-- <center><h2><b>Product Price in HamroTarkariBazar</center></h2></b>
 				<table border="1" height="100px"  width="100%"  >
 				<thead>
 				<tr>
@@ -123,7 +124,19 @@
 					<th><center><b>Price per Quantity</b></center></th>
 				</tr>
 				</thead>
-				<tbody> 
+				<tbody>  -->
+
+
+				<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><b>SN</b></th>
+      <th scope="col"><b>Product Name</b></th>
+      <th scope="col"><b>Price Per Quantity</b></th>
+    </tr>
+  </thead>
+  <tbody>
+
 
 <?php
 include '../../app/call.php';
@@ -133,17 +146,29 @@ foreach($Price as $key =>$prices):
 
 
 ?>
-<tr>
-                                    <td><center><?php echo $sn;$sn++ ; ?></td>
+<!-- <tr>
+                                    <td><center></td>
 									<td><center><?php echo $prices['title']; ?></center></td>
 									<td><center><?php echo $prices['price']; ?></center></td>
-</tr>
+</tr> -->
+
+
+<tr>
+      <th scope="row"><?php echo $sn;$sn++ ; ?></th>
+      <td><?php echo $prices['title']; ?></td>
+      <td><?php echo $prices['price']; ?></td>
+    </tr>
+  
 <?php endforeach; ?>
-							</tbody>
+
+</tbody>
+</table>
+							<!-- </tbody>
 
 				
 			
-			</table>
+			</table> -->
+			
 	
 
 </body>

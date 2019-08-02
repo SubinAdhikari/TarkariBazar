@@ -1,4 +1,24 @@
-
+<?php
+include '../../app/call.php';
+$msg="";
+if(isset($_POST['track'])){
+if(selectMyPendingOrderForTrack($conn,$_POST['email'],$_POST['id'])){
+    $msg= "You'r order is in pending process.Please Receive the confirmation call.";
+}else{
+    $msg="Order Number or Email doe not match.Please check your email or Order Number";
+}
+if(selectMyConfirmedOrderForTrack($conn,$_POST['email'],$_POST['id'])){
+    $msg="You'r Order is Shipped.";
+}else{
+   $msg=" Order Number or Email doe not match.Please check your email or Order Number";
+}
+if(selectMyOrderForTrack($conn,$_POST['email'],$_POST['id'])){
+    $msg="You'r Order is Delivered.Time for cooking delicious food";
+}else{
+    $msg=" Order Number or Email doe not match.Please check your email or Order Number";
+ }
+}
+?>
 
 <!DOCTYPE html> 
 <html lang="en">
@@ -50,106 +70,11 @@
 
 <body>
  
-<!-- NAVEBAR HERE -->
 
 
 
 
 
-
-
-
-
-<!-- <div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="Frontendhome.php"><img src="../UserView/layouts/logo.png" alt="HameroTarkariBazar" width="50%"></a>
-
-			<ul class="nav navbar-nav visible-xs-block">
-				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
-		</div>
-
-		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav">
-				
-			
-				
-			</ul>
-
-			
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown language-switch">
-					
-
-					
-				</li>
-
-				
-
-				<li class="dropdown dropdown-user">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="../UserView/assets/images/user.png" alt="">
-						
-						<i class="caret"></i>
-					</a>
-
-					<ul class="dropdown-menu dropdown-menu-right">
-						
-						<li><a href="login.php"><i class="icon-switch2"></i>Login</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-// include 'layouts/header.php';
-$serverName="localhost";
-$userName="root";
-$password="";
-$dbName="userloginfortb";
-
-$conn=mysqli_connect($serverName,$userName,$password,$dbName);
-
-if(!$conn)
-  die("connection Failed".mysqli_connect_error());
-
-
-$query="SELECT image,link,quantity,title,description,update_date from tb_addproduct";
-
-$result=mysqli_query($conn,$query);
-
-$marqueeNoticeFetch="SELECT notice FROM marquee_info ORDER BY id DESC ";
-$notice=mysqli_query($conn,$marqueeNoticeFetch);
-$row=mysqli_fetch_assoc($notice);
-
-?>
 
 	<!-- Page container -->
 	<div class="page-container">
@@ -184,10 +109,10 @@ $row=mysqli_fetch_assoc($notice);
       <a class="navbar-brand" href="Frontendhome.php">HamroTarkariBazar</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="Frontendhome.php">Home</a></li>
+      <li class="inactive"><a href="Frontendhome.php">Home</a></li>
       
-      <li><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price in hamroTarkariBazar</a></li>
-	  <li><a href="trackMyOrder.php">Track My order</a></li>
+      <li class="inactive"><a href="today'sVegatablePriceinHTB.php">Today's Vegetable Price in hamroTarkariBazar</a></li>
+	  <li  class="active"><a href="trackMyOrder.php">Track My order</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -206,67 +131,25 @@ $row=mysqli_fetch_assoc($notice);
 <!DOCTYPE html>
 <html>
 <head> 
-	<title>Display</title> 
+	<title>Display</title>
 </head>
 <body>
-<hr size="30" >
-<div>
-<span style="color:red;font-style:italic;background-color:white "><marquee><b><?php foreach($row as $key=>$rows): echo $rows; ?></b></marquee></span><?php endforeach; ?>
-</div>
-<hr size="30" >
-<div>
-<!-- <center><h1><span style="color:Red">OFFERS</span> </h1></center> -->
 
-         <img   src="../UserView/ProductSaleimages/banner.png" width=100% height="300px" border="0"/>       
-	  </div>
-	  <hr size="30" >
-
-	  
-<!-- <h3>Please Use CTRL + F for filter sorry for the inconvenience caused</h3> -->
-<?php
-while($row=mysqli_fetch_assoc($result)){
-	if($row['quantity']>=1){
-
-	// echo $row['image'];  
-	// $link=$row['link'];
-	?>
-	<div>
-	
-
-	<div class="card-deck">
-<div class="col-sm-3">
-  <div class="card">
-  <a  href= "login.php"> <img class="card-img-top" src="../ProductImages/<?php echo $row['image']  ?>" alt="ProductName" height="200" width="100%" > 
-    <div class="card-body">
-      <h5 class="card-title"><?php echo $row['title'] ?></h5>
-      <p class="card-text"><?php echo $row['description'] ?></p>
-	  <p class="card-text"><small class="text-muted"><?php echo $row['update_date'] ?></small></p></a>
-	  
-    </div>
-  </div>
-  </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-		<!-- <a  href= "Pages/<?php  echo $row['link'] ?> "> <img src="../ProductImages/<?php echo $row['image']  ?>" alt="#" height="200" width="100%"></a> -->
-	</div>
-<?php 
-}
-}
-?>
-
-
-
-
-
+<form method="POST">
+<table>
+<tr>
+<td><label>Email</label></td>
+<td><input type="email" name="email" required></td>
+</tr>
+<tr>
+<td><label>Order Number</label></td>
+<td><input type="text" name="id" required></td>
+</tr>
+<td><button type="submit" name="track">Track</button></td>
+</table>
+<?php echo $msg; ?>
+			
+</form>	
 
 </body>
 </html>
