@@ -4,19 +4,13 @@ $msg="";
 if(isset($_POST['track'])){
 if(selectMyPendingOrderForTrack($conn,$_POST['email'],$_POST['id'])){
     $msg= "You'r order is in pending process.Please Receive the confirmation call.";
-}else{
-    $msg="Order Number or Email doe not match.Please check your email or Order Number";
 }
 if(selectMyConfirmedOrderForTrack($conn,$_POST['email'],$_POST['id'])){
     $msg="You'r Order is Shipped.";
-}else{
-   $msg=" Order Number or Email doe not match.Please check your email or Order Number";
 }
 if(selectMyOrderForTrack($conn,$_POST['email'],$_POST['id'])){
     $msg="You'r Order is Delivered.Time for cooking delicious food";
-}else{
-    $msg=" Order Number or Email doe not match.Please check your email or Order Number";
- }
+}
 }
 ?>
 
