@@ -19,6 +19,7 @@ if(isset($_POST['submitbtn'])){
 }
 
 if(isset($_POST['Usersubmitbtn'])){
+
   
    if(AuthenticateCredientialUSER($conn,$_POST)){
     $userInfo=AuthenticateCredientialUSER($conn,$_POST);

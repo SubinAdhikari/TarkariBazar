@@ -233,10 +233,10 @@ while($row=mysqli_fetch_assoc($result)){
 	<div>
 	
 
-	<div class="card-deck">
+	<div class="card-deck"> 
 <div class="col-sm-3">
   <div class="card">
-  <a  href= "login.php"> <img class="card-img-top" src="../ProductImages/<?php echo $row['image']  ?>" alt="ProductName" height="200" width="100%" > 
+  <a  href= "login.php "> <img class="card-img-top" src="../ProductImages/<?php echo $row['image']  ?>" alt="ProductName" height="200" width="100%" > 
     <div class="card-body">
       <h5 class="card-title"><?php echo $row['title'] ?></h5>
       <p class="card-text"><?php echo $row['description'] ?></p>

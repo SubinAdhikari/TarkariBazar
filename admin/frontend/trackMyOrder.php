@@ -3,13 +3,16 @@ include '../../app/call.php';
 $msg="";
 if(isset($_POST['track'])){
 if(selectMyPendingOrderForTrack($conn,$_POST['email'],$_POST['id'])){
-    $msg= "You'r order is in pending process.Please Receive the confirmation call.";
+    $msg= "You'r order is in pending process.Please Receive the confirmation call.Else contact our customer service number 01-2345678";
 }
-if(selectMyConfirmedOrderForTrack($conn,$_POST['email'],$_POST['id'])){
+else if(selectMyConfirmedOrderForTrack($conn,$_POST['email'],$_POST['id'])){
     $msg="You'r Order is Shipped.";
 }
-if(selectMyOrderForTrack($conn,$_POST['email'],$_POST['id'])){
+else if(selectMyOrderForTrack($conn,$_POST['email'],$_POST['id'])){
     $msg="You'r Order is Delivered.Time for cooking delicious food";
+}
+else{
+	$msg="Order Number doesn't Match";
 }
 }
 ?>
